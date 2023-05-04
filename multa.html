@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #5F7CBA;
+        }
+        .divPai {
+            
+            background-color: white;
+            max-width: 500px;
+            width: 70%;
+            padding: 20px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+        }
+        .text {
+           /* margin-left: 100px; */
+            text-align: center;
+            color: black;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        #mult{
+            margin-left: 125px;
+        }
+        .conteudo{
+            margin-left: 110px;
+            margin-top: 10px;
+            width: 50%;
+            height:40px;
+            cursor: pointer;
+            background:#5F7CBA;
+            color: white;
+            border: 0;
+            border-radius: 20px;
+            transition:1s
+        }
+        .minText {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        #res{
+            background-color: #5F7CBA;
+            height: 30px;
+            color: white;
+            border-radius: 20px;
+            margin-top: 20px;
+            padding-left: 30px;
+            padding-top: 10px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="divPai">
+    <h1 class="text">Sistema de multa</h1>
+    <hr>
+    <p class="minText">Compile sua velocidade para que possamos determinar se há multa ou não</p>
+    <input type="number" id="mult"> KM/H
+    <input type="button" value="verificar" onclick="calcular()" class="conteudo">
+    <div id="res">
+       
+    </div>
+</div>
+<script>
+function calcular() {
+    var vel = document.getElementById('mult')
+    var res = document.getElementById('res')
+    var tvel = Number(vel.value)
+    res.innerHTML = `Sua velocidade atual é de <strong> ${tvel} km/h </strong>`
+    if (tvel > 60) {
+        res.innerHTML += ', você está <strong> multado </strong> por excesso de velocidade.'
+    } else
+        res.innerHTML += ', boa viagem.'
+}
+</script>
+</body>
+</html>
